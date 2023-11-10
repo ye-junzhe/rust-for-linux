@@ -109,3 +109,15 @@ $ qemu-system-aarch64
 ```
 
 <img width="1233" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/70e5fff4-41cf-49e5-9fcc-959124876ef4">
+
+## e1000网卡驱动
+
+- https://github.com/rcore-os/rust-for-linux/blob/main/exercise3.md
+
+### Preferences
+
+- https://github.com/fujita/rust-e1000 驱动编译成模块可以不用重新编译内核。把新的ko放到文件系统中即可。指定一个KDIR
+- https://github.com/fujita/linux/tree/rust-e1000       too much
+
+- https://github.com/orgs/rcore-os/discussions/30       not for now I guess
+- https://github.com/rcore-os/virtio-drivers            cool
