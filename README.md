@@ -1,5 +1,19 @@
 # rust-for-linux
 
+<!--toc:start-->
+- [rust-for-linux](#rust-for-linux)
+  - [Env](#env)
+  - [编译内核(Exercise 1)](#编译内核exercise-1)
+  - [编译Rust模块helloworld(Exercise 2)](#编译rust模块helloworldexercise-2)
+    - [安装QEMU](#安装qemu)
+    - [利用busybox制作文件系统](#利用busybox制作文件系统)
+  - [e1000网卡驱动(Exercise 3)](#e1000网卡驱动exercise-3)
+    - [Preferences](#preferences)
+    - [编译rust_e1000.ko](#编译ruste1000ko)
+    - [Linux kernel网络参数设置](#linux-kernel网络参数设置)
+    - [QEMU启动参数](#qemu启动参数)
+<!--toc:end-->
+
 ## Env
 
 - Debian GNU/Linux 12 (bookworm) aarch64 in Parallel Desktop Virtual Machine
