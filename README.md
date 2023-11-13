@@ -159,7 +159,9 @@ qemu-system-aarch64                                                             
 
 <img width="717" alt="图片" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/b1dff794-5735-40b4-a585-20baa53a0258">
 
-### 编译rust_e1000.ko
+### 先学习编译fujita e1000，了解busybox加载模块的流程
+
+#### 编译rust_e1000.ko
 
 ```bash
 git clone https://github.com/fujita/rust-e1000
@@ -177,7 +179,7 @@ file    /rust_helloworld.ko    ../linux-fujita/build/samples/rust/rust_helloworl
 file    /rust_e1000.ko         ../rust-e1000/rust_e1000.ko                              0755 0 0 # 新增
 ```
 
-### Linux kernel网络参数设置
+#### Linux kernel网络参数设置
 
 `cat qemu-init.sh`
 
@@ -203,7 +205,7 @@ busybox sh
 busybox poweroff -f
 ```
 
-### QEMU启动参数
+#### QEMU启动参数
 
 ```bash
 qemu-system-aarch64 \
@@ -220,6 +222,27 @@ qemu-system-aarch64 \
 - ping通
   
 <img width="894" alt="图片" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/3fbbb2d5-7b63-4074-afe1-6128a6f8d448">
+
+
+### 作业3 e1000-driver 添加代码
+
+#### Preferences
+
+- https://github.com/yuoo655/e1000-driver/tree/main/src
+
+#### Linux rust_helper
+
+- 修改后的代码 https://github.com/ye-junzhe/e1000-driver
+
+- 增加自定义函数并编译成功
+
+<img width="1858" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/d4a21c4a-8e03-4243-a0d2-a6c42feedde9">
+
+
+
+
+
+
 
 TODO:
 - https://github.com/rcore-os/virtio-drivers
