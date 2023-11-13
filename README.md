@@ -9,9 +9,11 @@
     - [利用busybox制作文件系统](#利用busybox制作文件系统)
   - [e1000网卡驱动(Exercise 3)](#e1000网卡驱动exercise-3)
     - [Preferences](#preferences)
-    - [编译rust_e1000.ko](#编译ruste1000ko)
-    - [Linux kernel网络参数设置](#linux-kernel网络参数设置)
-    - [QEMU启动参数](#qemu启动参数)
+    - [先学习编译fujita e1000，了解busybox加载模块的流程](#先学习编译fujita-e1000了解busybox加载模块的流程)
+      - [编译rust_e1000.ko](#编译ruste1000ko)
+      - [Linux kernel网络参数设置](#linux-kernel网络参数设置)
+      - [QEMU启动参数](#qemu启动参数)
+    - [作业3 e1000-driver 添加代码](#作业3-e1000-driver-添加代码)
 <!--toc:end-->
 
 ## Env
@@ -226,21 +228,13 @@ qemu-system-aarch64 \
 
 ### 作业3 e1000-driver 添加代码
 
-#### Preferences
-
 - https://github.com/yuoo655/e1000-driver/tree/main/src
-
-#### Linux rust_helper
 
 - 修改后的代码 https://github.com/ye-junzhe/e1000-driver
 
 - 增加自定义函数并编译成功
 
 <img width="1858" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/d4a21c4a-8e03-4243-a0d2-a6c42feedde9">
-
-
-
-
 
 
 
