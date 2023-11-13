@@ -234,7 +234,8 @@ qemu-system-aarch64 \
 
 - 增加自定义函数并编译成功
 
-<img width="1858" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/d4a21c4a-8e03-4243-a0d2-a6c42feedde9">
+<img width="1363" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/a32539e3-d7eb-4f92-9a64-d5ac40cc6bca">
+
 
 
 
