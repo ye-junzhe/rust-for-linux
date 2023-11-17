@@ -14,6 +14,9 @@
       - [Linux kernel网络参数设置](#linux-kernel网络参数设置)
       - [QEMU启动参数](#qemu启动参数)
     - [作业3 e1000-driver 添加代码](#作业3-e1000-driver-添加代码)
+  - [e1000网卡驱动(Exercise 4)](#e1000网卡驱动exercise-4)
+    - [停用内置e1000网卡驱动](#停用内置e1000网卡驱动)
+    - [作业4添加代码](#作业4添加代码)
 <!--toc:end-->
 
 ## Env
