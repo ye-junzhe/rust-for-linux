@@ -236,7 +236,33 @@ qemu-system-aarch64 \
 
 <img width="1363" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/a32539e3-d7eb-4f92-9a64-d5ac40cc6bca">
 
+## e1000网卡驱动(Exercise 4)
 
+### 停用内置e1000网卡驱动
+
+在menuconfig中搜索e1000，并停用
+
+### 作业4添加代码
+
+- 修改后的代码 https://github.com/ye-junzhe/e1000-driver
+
+编译后对e1000模块进行加载
+
+<img width="1041" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/33e8d065-241f-418b-b523-933bd4244d7e">
+
+<img width="916" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/b0783f4b-28db-40f3-be52-834de5f04114">
+
+<img width="871" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/2034c6cb-b703-40e4-946e-24c15e340f31">
+
+```bash
+busybox insmod e1000_for_linux.ko
+busybox ifconfig eth0 up
+busybox ifconfig eth0 10.0.2.20
+busybox ip route add default via 10.0.2.2 dev eth0
+```
+
+- ping通外网
+<img width="874" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/22ba334c-8209-47fe-981d-02694df60561">
 
 
 TODO:
