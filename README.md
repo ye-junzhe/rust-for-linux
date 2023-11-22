@@ -48,7 +48,7 @@ make ARCH=arm64 LLVM=1 O=build menuconfig
 General setup
         ---> [*] Rust support
 
-make ARCH=arm64 LLVM=1 -j8
+cd build && make ARCH=arm64 LLVM=1 -j8
 ```
 
 <img width="611" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/dc694004-6721-4866-baa9-88de45eeb71c">
