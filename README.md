@@ -267,6 +267,27 @@ busybox ip route add default via 10.0.2.2 dev eth0
 - ping通外网
 <img width="874" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/22ba334c-8209-47fe-981d-02694df60561">
 
+## 实习项目
+
+### 在树莓派模拟器上，适配Rust for Linux 6.6内核，并实现Rust Uart串口驱动
+
+- QEMU system emulation binaries for ARM processors. On Ubuntu, qemu-system-arm.
+
+- Raspbian Stretch with Desktop, disk image.
+    
+- Latest Debian Stretch kernel from the qemu-rpi-kernel project.
+
+- 实现Rust Uart驱动
+
+
+
+
+
+
+
+
+
+
 
 TODO:
 - https://github.com/rcore-os/virtio-drivers
