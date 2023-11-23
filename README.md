@@ -48,7 +48,7 @@ make ARCH=arm64 LLVM=1 O=build menuconfig
 General setup
         ---> [*] Rust support
 
-cd build && make ARCH=arm64 LLVM=1 -j8
+make ARCH=arm64 LLVM=1 -j8
 ```
 
 <img width="611" alt="image" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/dc694004-6721-4866-baa9-88de45eeb71c">
@@ -269,17 +269,70 @@ busybox ip route add default via 10.0.2.2 dev eth0
 
 ## 实习项目
 
-### 在树莓派模拟器上，适配Rust for Linux 6.6内核，并实现Rust Uart串口驱动
+在树莓派模拟器上，适配Rust for Linux内核，并实现Rust Uart串口驱动
 
-- QEMU system emulation binaries for ARM processors. On Ubuntu, qemu-system-arm.
+### 适配Rust for Linux内核
 
-- Raspbian Stretch with Desktop, disk image.
-    
-- Latest Debian Stretch kernel from the qemu-rpi-kernel project.
+#### 对image做处理来适配QEMU启动
 
-- 实现Rust Uart驱动
+- 下载Raspberry Pi OS image: https://www.raspberrypi.com/software/operating-systems/
+  
+##### fdisk显示img信息
 
+<img width="1043" alt="图片" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/f00cfa5a-9652-4fe4-a7b9-2e13c856c949">
 
+##### 计算第一个偏移量，mount img1
+
+<img width="938" alt="图片" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/1361ed5d-7fdb-460c-ae01-6c92f488cc25">
+
+- 由于较新版的Raspberry Pi OS不再支持默认用户名密码登陆，所以需要在镜像根目录添加userconf.txt，手动添加用户，利用openssl生成密码密文
+
+`echo 'raspberry' | openssl passwd -6 -stdin`
+
+<img width="918" alt="图片" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/c768d124-0635-4faf-9c35-666541aca3eb">
+
+##### 计算第二个偏移量，mount img2，复制出内核vmlinuz（后面会替换成rust-for-linux内核）和文件系统initrd
+
+<img width="1171" alt="图片" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/e463b01c-268a-4e35-857e-1ac8363e7d3c">
+
+- 适配rust-for-linux 内核
+
+```bash
+# 目前最新的
+git clone https://github.com/Rust-for-Linux/linux -b rust-dev --depth=1
+
+make ARCH=arm64 LLVM=1 O=build defconfig
+
+make ARCH=arm64 LLVM=1 O=build menuconfig
+#set the following config to yes
+General setup
+        ---> [*] Rust support
+
+make ARCH=arm64 LLVM=1 -j8
+```
+
+- QEMU 运行
+
+```bash
+qemu-system-aarch64 \
+    -cpu cortex-a57 \
+    -M virt \
+    -m 1G \
+    -kernel ../linux/build/arch/arm64/boot/Image \
+    -initrd ../raspberry-pi/initrd.img \
+    -drive file=../raspberry-pi/2023-10-10-raspios-bookworm-arm64-lite.img,if=none,id=drive0,cache=writeback -device virtio-blk,drive=drive0,bootindex=0 \
+    -append 'root=/dev/vda2 noresume rw' \
+    -nographic \
+    -no-reboot \
+```
+
+##### 可以看到运行在6.7.0的Linux内核上
+
+<img width="998" alt="图片" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/faaa1a76-cca2-4304-97f5-868e629fe07c">
+
+### 实现Rust Uart串口驱动
+
+Linux 中的 UART 驱动通常作为内核的一部分提供，而不是独立于内核的用户空间程序。UART 驱动的源代码位于 Linux 内核源代码的 drivers/tty/serial/ 目录下。在这个目录下，你可以找到多个 UART 驱动，每个驱动通常对应于支持的特定硬件。
 
 
 
