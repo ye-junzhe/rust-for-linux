@@ -22,7 +22,7 @@
       - [对image做处理来适配QEMU启动](#对image做处理来适配qemu启动)
         - [fdisk显示img信息](#fdisk显示img信息)
         - [计算第一个偏移量，mount img1](#计算第一个偏移量mount-img1)
-        - [计算第二个偏移量，mount img2，复制出内核vmlinuz（后面会替换成rust-for-linux内核）和文件系统initrd](#计算第二个偏移量mount-img2复制出内核vmlinuz后面会替换成rust-for-linux内核和文件系统initrd)
+        - [计算第二个偏移量，mount img2](#计算第二个偏移量mount-img2)
         - [可以看到运行在6.7.0的Linux内核上](#可以看到运行在670的linux内核上)
     - [实现Rust Uart串口驱动](#实现rust-uart串口驱动)
 <!--toc:end-->
