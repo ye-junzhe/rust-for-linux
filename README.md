@@ -299,9 +299,13 @@ busybox ip route add default via 10.0.2.2 dev eth0
 
 <img width="918" alt="图片" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/c768d124-0635-4faf-9c35-666541aca3eb">
 
-##### 计算第二个偏移量，mount img2，复制出内核vmlinuz（后面会替换成rust-for-linux内核）和文件系统initrd
+##### 计算第二个偏移量，mount img2
 
 <img width="1171" alt="图片" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/e463b01c-268a-4e35-857e-1ac8363e7d3c">
+
+- 复制出内核vmlinuz（后面会替换成rust-for-linux内核）和文件系统initrd
+
+<img width="931" alt="图片" src="https://github.com/ye-junzhe/rust-for-linux/assets/53103747/24d54d1a-0057-4918-9b49-221a2946f9a8">
 
 - 适配rust-for-linux 内核
 
