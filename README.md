@@ -17,6 +17,14 @@
   - [e1000网卡驱动(Exercise 4)](#e1000网卡驱动exercise-4)
     - [停用内置e1000网卡驱动](#停用内置e1000网卡驱动)
     - [作业4添加代码](#作业4添加代码)
+  - [实习项目](#实习项目)
+    - [适配Rust for Linux内核](#适配rust-for-linux内核)
+      - [对image做处理来适配QEMU启动](#对image做处理来适配qemu启动)
+        - [fdisk显示img信息](#fdisk显示img信息)
+        - [计算第一个偏移量，mount img1](#计算第一个偏移量mount-img1)
+        - [计算第二个偏移量，mount img2，复制出内核vmlinuz（后面会替换成rust-for-linux内核）和文件系统initrd](#计算第二个偏移量mount-img2复制出内核vmlinuz后面会替换成rust-for-linux内核和文件系统initrd)
+        - [可以看到运行在6.7.0的Linux内核上](#可以看到运行在670的linux内核上)
+    - [实现Rust Uart串口驱动](#实现rust-uart串口驱动)
 <!--toc:end-->
 
 ## Env
